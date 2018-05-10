@@ -1,0 +1,82 @@
+\doublespacing
+%Edit your information here.
+\title{{\large DISSERTATION TITLE HERE IN ALL CAPS}} 
+\author{\uppercase{Your Name}\\[0.5in]               
+First Degree \\                                      
+Institution of Degree \\
+Month Year \\ \\
+Second Degree \\
+Institution of Degree \\
+Month Year \\[0.5in]
+submitted in partial fulfillment of requirements for the degree \\ \uppercase{Doctor of Engineering in [specialization here]} \\ at \\ \uppercase{Cleveland State University}}
+\date{\uppercase{MONTH} YEAR}
+
+%YOU MUST CHANGE THE SPACING IF YOU HAVE A DIFFERENT NUMBER OF DEGREES
+\maketitle
+\clearpage
+
+%------------------------------------------------------------------
+%ACKNOWLEDGMENTS
+%------------------------------------------------------------------
+\newpage
+\begin{center}
+\textbf{\uppercase{Acknowledgments}}\\
+\end{center}
+\pagestyle{empty}
+
+%INPUT YOUR ACKNOWLEDGMENTS HERE
+Optional. 
+
+\newpage 
+
+%-------------------------------------------
+%ABSTRACT AND TABLE OF CONTENTS
+%-------------------------------------------
+\pagestyle{plain}
+\pagenumbering{roman}
+\setcounter{page}{3} %<---update this number to the amount of pages before it, including the title page. In this example, we have a title page and an acknowledgments page, so the ABSTRACT starts at 3. 
+\begin{center}
+\addtocontents{toc}{{}~\hfill{Page}\par}
+\addcontentsline{toc}{chapter}{ABSTRACT}
+\uppercase{Dissertation Title Here}\\ %<----Input your stuff here
+\uppercase{Your Name Here}\\          %<----And Here
+\textbf{\uppercase{abstract}}\\
+\end{center}
+
+%Input your abstract here
+Here is the abstract. It must be 350 words or less. 
+
+\clearpage
+\newpage
+
+%------------------------------
+%MORE FORMATTING THINGS
+%------------------------------
+%Add TOC, LOT, and LOF with Consistent Spacing. 
+%DO NOT CHANGE OR REMOVE.
+
+%The TOC cannot have hyphenated headings. You may need to check individual Chapters, Sections, and Subsections to see if any formatting is weird in the TOC. If it is, you can manually fix by making a short title like this:
+%\section[Short title that is really long \\ but avoids hyphenation]{Title that is really long and shows up normally in text} 
+
+%If there is still a hyphen or the formatting is strange, then consider changing your title to something else. 
+\let\origaddvspace\addvspace
+\renewcommand{\addvspace}[1]{}
+\tableofcontents
+\addtocontents{lot}{{Table}~\hfill{Page}\par}
+\DeclareTOCStyleEntry[entrynumberformat=\adddot]{tocline}{table}
+\newcommand*{\adddot}[1]{#1\unskip.\hfill}
+\listoftables
+\DeclareTOCStyleEntry[entrynumberformat=\adddot]{tocline}{figure}
+\addtocontents{lof}{{Figure}~\hfill{Page}\par}
+\listoffigures
+\renewcommand{\addvspace}[1]{\origaddvspace{#1}}
+
+%Change Chapters to have 3" Margins. 
+%DO NOT CHANGE OR REMOVE. 
+\titleformat{\chapter}[display]
+{\normalfont\filcenter%%
+    \normalsize}{\chaptertitlename\ \thechapter}{0pt}{%
+    \normalsize %
+    }
+\titlespacing*{\chapter}{0pt}{2in}{0pt}
+

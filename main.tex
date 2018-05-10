@@ -1,0 +1,257 @@
+%LATEX DISSERTATION TEMPLATE
+%Written by: Sandra Hnat, Mechanical Engineering Department, Cleveland State University, 2018
+
+%This is a template that conforms to CSU's dissertation standards as best as a LaTeX document can. For your own sanity, don't change any formatting settings, especially:
+%1) in the section in main.tex before "\begin{document}" and in the appendix section
+%2) in the title_page.tex
+%3) in the stuff BEFORE the "chapter" command in each Chapter.tex file. 
+
+%In most of this template, you can just fill in the sections with your details. Content within each chapter (i.e. # of sections and # of subsections) is up to you. 
+
+%Some (note: SOME, not all) of the format in the Chapters is just an example. It isn't directly specified by CSU. It was created for a clear organization of the dissertation so the readers understand what's happening. If you like it, feel free to use it. If you don't, in each Chapter.tex file, just delete anything AFTER the "\chapter" command and BEFORE the "\abstract" command. If you change something, make sure the titles are still in ALL CAPS, centered, unbolded, 3" from the top, and the same font and size as the text, with double spacing between CHAPTER and TITLE.    
+
+%If you change any formatting settings, please go back to the website here and check if the new changes no longer match the CSU template:
+%http://www.csuohio.edu/sites/csuohio.edu.graduate-studies/files/thesis-complete.pdf
+
+%CSU is very specific to follow these guidelines as shown, but this Latex format was accepted by the College of Graduate Studies. However, the formatting code of this template look "ugly." If you find a better way of fixing this, then please feel free to update, but preserve my name as the original template creator. Thanks and good luck! 
+
+%If you have any questions about this template, feel free to email me at: sandra.k.hnat@gmail.com
+%------------------------------------------------------------
+
+%DONT CHANGE THIS BIT HERE:
+\documentclass[12pt]{report}
+\usepackage[letterpaper,margin=1in]{geometry}
+\geometry{lmargin=1.5in,footskip=0.5in,} 
+
+%Declare all Packages. You may not need all of these. Feel free to go through them all and remove if not needed.
+\usepackage{lineno}
+\usepackage[hidelinks]{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage{multirow} 
+\usepackage{multicol} 
+\usepackage{fancyhdr}
+\usepackage{titletoc} %definitely don't get rid of this
+\usepackage{array}
+\usepackage{mathtools}
+\usepackage{gensymb}
+\usepackage{lscape}
+\usepackage{xfrac}
+\usepackage{verbatim}
+\usepackage{chngcntr}
+\usepackage{titlesec} %definitely don't get rid of this
+\usepackage{nth}
+\usepackage{float}
+\usepackage{makeidx}
+\usepackage{color}
+\usepackage{tabularx,booktabs,siunitx}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{epstopdf}
+\usepackage{setspace}
+\usepackage{relsize}
+\usepackage{caption} %don't get rid of this 
+\usepackage{subcaption} %don't get rid of this
+\usepackage{courier}
+\usepackage{pdflscape}
+\usepackage{afterpage}
+\usepackage{minted}
+\usepackage{times} %definitely don't get rid of this
+\usepackage{lscape}
+\usepackage{pdfpages}
+\usepackage{tocbasic} %definitely don't get rig of this
+\usepackage{chngcntr} %definitely don't get rid of this
+\usepackage[nottoc,numbib]{tocbibind} %definitely don't get rid of this if you want references at the end of every chapter
+\usepackage[font=small]{caption} %definitely don't get rid of this
+\doublespacing %DOCUMENT MUST BE DOUBLE SPACED
+
+%Bibliography Management to Display after Each Chapter. This looks nice. If you want a giant section of references at the end only, then you can remove it. This sets it up per chapter and is much more organized-looking. 
+\usepackage[sectionbib, square,numbers, sort&compress]{natbib}
+\usepackage{chapterbib}
+
+%Specify Picture Location Folder. Change this to suit your needs, or remove it
+\graphicspath{ {./Pictures/} }
+
+%Capitalize CHAPTER and PART, TOC, LOF, and LOT, and References. 
+%DON'T CHANGE OR REMOVE. 
+\renewcommand{\bibname}{REFERENCES}
+\renewcommand{\chaptername}{CHAPTER}
+\renewcommand{\partname}{PART}
+\renewcommand{\listfigurename}{LIST OF FIGURES}
+\renewcommand{\listtablename}{LIST OF TABLES}
+\renewcommand{\contentsname}{TABLE OF CONTENTS}
+\renewcommand\thepart{\normalfont \Roman{part}.}
+
+%Center Titles, Normal Size Font, and Preserve Double-Spacing. 
+%DON'T CHANGE OR REMOVE. 
+\titleformat{\chapter}[display]
+{\normalfont\filcenter%%
+    \normalsize}{\chaptertitlename\ \thechapter}{0pt}{%
+    \normalsize %
+    }
+\titlespacing*{\chapter}{0pt}{0pt}{0pt}
+
+\titleformat{\section}
+  {\normalfont\fontsize{12}{12}\bfseries}{\thesection}{1em}{}
+  \titlespacing*{\thesection}{0pt}{0pt}{0pt}
+  
+  \titleformat{\subsection}
+  {\normalfont\fontsize{12}{12}\bfseries}{\thesubsection}{1em}{}
+  \titlespacing*{\thesubsection}{0pt}{0pt}{0pt}
+  
+  \titleformat{\part}[display]
+  {\huge\filcenter%%
+    \huge}{PART \thepart}{0pt}{%
+    \huge %
+    }
+
+%Add PART Label to TOC 
+%DON'T CHANGE OR REMOVE IF YOU HAVE DISSERTATION PARTS. 
+\titlecontents{part}
+[0pt]% left margin
+{\hangindent5.0em}% <---you can adjust this parameter here if the indent isn't correct for PART numbers in the TOC
+{\contentsmargin{0pt} 
+    \thecontentslabel \quad
+    \normalsize}
+{\partname~}
+{\titlerule*[1pc]{.}\contentspage}
+
+%Set Abstract, LOT, and LOF Margins in TOC.
+%DON'T CHANGE OR REMOVE. 
+\titlecontents{chapter}
+[0pt]% left margin
+{}%
+{\contentsmargin{0pt} 
+    \thecontentslabel\enspace%
+    \normalsize}
+{\contentsmargin{0pt}\normalsize} 
+{\titlerule*[1pc]{.}\contentspage}
+ 
+%Chapters as Roman Numerals, but not Sections and Subsections. 
+%DON'T CHANGE OR REMOVE. 
+\renewcommand{\thechapter}{\Roman{chapter}}
+\renewcommand\thesection{\thechapter.\arabic{section}}
+\renewcommand\thesubsection{\thesection.\arabic{subsection}}
+
+%Renumber Figures (Numbers starting at 1) and Tables (Roman Numerals starting at I). 
+%DON'T CHANGE OR REMOVE. 
+\setcounter{figure}{0}
+\setcounter{table}{0}
+\counterwithout{figure}{chapter}
+\counterwithout{table}{chapter}
+\renewcommand*\thetable{\Roman{table}}
+
+%Match DOTTED LINES in TOC for Section and Subsection. 
+%DON'T CHANGE OR REMOVE. 
+\titlecontents{section}
+[0pt]{\normalsize\protect}
+{}{\sectionname~}
+{\titlerule*[1pc]{.}\contentspage}
+
+\titlecontents{subsection}
+[0pt]{\normalsize\protect}
+{}{\subsectionname~}
+{\titlerule*[1pc]{.}\contentspage}
+  
+%Fix Indents in TOC. DON'T CHANGE OR REMOVE. 
+\makeatletter
+\renewcommand*\l@section{\@dottedtocline{1}{6.0em}{2.5em}}
+\renewcommand*\l@subsection{\@dottedtocline{2}{9.0em}{3.0em}}
+\makeatother
+
+%----------------------------------------------------
+%TITLE PAGES, ABSTRACT, LIST OF FIGURES/TABLES
+%----------------------------------------------------
+\begin{document}
+
+\include{title_page}
+
+%Don't change this formatting either. 
+\clearpage
+\pagenumbering{arabic}
+\pagestyle{plain}
+
+%---------------------------------------------------
+%CHAPTER 1: INTRODUCTION
+%---------------------------------------------------
+%The following is just an example dissertation. If you like the structure, keep it. If not, then prepare for a bit of editing. 
+
+%HERE IS THE INTRODUCTION CHAPTER. 
+\include{Chapter_Introduction}
+
+%---------------------------------------------------
+%PART 1: This is the first part
+%---------------------------------------------------
+%You may not have Parts to your Dissertation. If you don't, then remove these. If you do, note that referencing the PART will have a period at the end of the Roman Numeral. For instance, "Please refer to Part I.." If this is annoying to you, then don't use the \ref command and manually input Part numbers as Roman Numerals. 
+\part{\normalfont The First Part}\label{Part_One}
+
+%FIRST CHAPTER OF PART 1
+\include{Chapter_Two}
+
+%SECOND CHAPTER OF PART 1
+\include{Chapter_Three}
+
+%-----------------------------------------------------
+%PART 2: This is the second part 
+%-----------------------------------------------------
+\part{\normalfont The Second Part}\label{Part_Two}
+
+%FIRST CHAPTER OF PART 2
+\include{Chapter_Four}
+
+%SECOND CHAPTER OF PART 2
+\include{Chapter_Five}
+
+%-----------------------------------------------------
+%PART 3: This is the third part
+%-----------------------------------------------------
+\part{\normalfont The Third Part}\label{Part_Three}
+
+%FIRST CHAPTER OF PART 3
+\include{Chapter_Six}
+
+%SECOND CHAPTER OF PART 3
+\include{Chapter_Seven}
+
+%------------------------------------------------------
+%PART 5: DISCUSSION
+%------------------------------------------------------
+
+%HERE IS THE FINAL DISCUSSION CHAPTER 
+\include{Chapter_Discussion}
+
+%------------------------------------------------------
+%APPENDIX
+%------------------------------------------------------
+\pagebreak
+
+\appendix
+
+%RESET INDENT OF APPENDICES IN TOC.
+%DO NOT CHANGE OR REMOVE
+\titlecontents{chapter}
+[3.0em]% left margin
+{}%
+{\contentsmargin{0pt} 
+    \thecontentslabel\enspace%
+    \normalsize}
+{\contentsmargin{0pt}\normalsize} 
+{\titlerule*[1pc]{.}\contentspage}
+
+%Reset to 1" Margins from Top. 
+%DO NOT CHANGE OR REMOVE. 
+\titleformat{\chapter}[display]
+{\normalfont\filcenter%%
+    \normalsize}{\chaptertitlename\ \thechapter}{0pt}{%
+    \normalsize %
+    }
+\titlespacing*{\chapter}{0pt}{0pt}{0pt}
+
+%If you have other appendices put them here...
+%\input{appendix1.tex}
+
+%\input{appendix2.tex}
+
+%Your copyrights at the end
+\input{copyrights.tex}
+
+\end{document}

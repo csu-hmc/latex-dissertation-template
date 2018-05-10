@@ -1,0 +1,108 @@
+%THIS IS THE INTRODUCTION CHAPTER. EVERY DISSERTATION SHOULD HAVE ONE OF THESE. HERE IS AN EXAMPLE OF ONE. 
+
+%If the title is long, which it probably will be, you will have to manually specify the indentation of the second line in the TOC. Yes, it is tedious. This is a working example. If you find a smarter way, feel free to change. Just note that the TOCLOFT package isn't compatible with TITLETOC, which is needed for the other corrections to get this template into the CSU format. Otherwise, change the \hangindent value to be the best match for an even indent with the text on the previous line. In this example, it's set up correctly. 
+
+%Change Indents in TOC for Chapters to be Indented. With the introduction, you probably don't have to change this. Still, don't remove this section here because it specifies the TOC margin.
+\titlecontents{chapter}
+[3.0em]
+{\hangindent6.5em}% <----only change this value here!!!!
+{\contentsmargin{0pt} 
+    \chaptername\ \thecontentslabel.\enspace%
+    \normalsize}
+{\contentsmargin{0pt}\normalsize}
+{\titlerule*[1pc]{.}\contentspage}
+
+%TITLES MUST BE IN ALL CAPS
+\chapter{OVERVIEW}\label{Introduction}
+\renewcommand{\thechapter}{\arabic{chapter}}
+
+%At the beginning and end of every chapter, you need to switch between Arabic and Roman Numerals. The CSU template requires Chapters as Roman Numerals, but sections/subsections with Arabic numbers. That is why this is here. In every Chapter here, you will see the switch from Arabic (at the beginning) and Roman (at the end). This is a working example, but it is a "dirty fix." Feel free to change it if you have a smarter way of doing it. 
+
+%SECTION INTRODUCTION
+A few introductory paragraphs describing the literature review. 
+You will likely have many citations. Here is a book example \cite{book1}.
+
+Your introduction chapter should roughly include the following things:
+
+\begin{itemize}
+\item{A background with a lot of citations}
+\item{A problem statement}
+\item{A list of objectives}
+\item{A dissertation outline}
+\end{itemize}
+
+%SECTION: LITERATURE REVIEW
+
+\section{Section 1}
+Here is a citation of an article \cite{article1}.
+
+\section{Section 2}
+A prediction of how you may be feeling right now can be referenced in Figure \ref{fig:picture_sad}.
+
+\begin{figure}[!ht]
+	{\includegraphics[width=0.3\textwidth]{sample_picture2.png}} 
+    \centering
+  	\caption[A short description of this figure for the LOF]{A long description of this figure. It will appear in the text but not the LOF. You may be stressing now, but don't worry. You will do fine.} 
+ 	\label{fig:picture_sad}
+\end{figure} 
+
+\section{Section 3}
+Here is a conference proceeding \cite{conference1}.
+
+%SECTION: PROBLEM STATEMENT
+\section{Problem Statement}
+
+Here is a paragraph describing the problem you are trying to solve. 
+
+%SECTION SPECIFIC AIMS. 
+%This is just an example. It doesn't need to look like this.
+\section{Specific Aims}
+Here is a section where you outline what your aims are and how you intend to do them. \\
+
+\noindent
+The objectives of this dissertation are as follows:
+\\ \\
+\textbf{Objective 1: one-line explanation of objective.} 
+Paragraph explanation of objective.
+\\ \\
+\textbf{Objective 2: one-line explanation of objective.} 
+Paragraph explanation of objective. \\ \\
+\noindent
+\noindent
+\textbf{Objective 3: one-line explanation of objective.} 
+Paragraph explanation of objective. 
+
+%SECTION OUTLINE
+%This is just an example. It doesn't need to look like this. 
+\section{Outline}
+This is where you describe the outline of the dissertation. This is an example 
+\\ \\
+\noindent
+\textbf{Part I} addresses \textbf{Objective 1} of this dissertation, where:
+\begin{itemize}
+\item{\textit{Chapter 2:} brief explanation}
+\item{\textit{Chapter 3:} brief explanation}
+\end{itemize}
+
+\noindent
+\textbf{Part II} concerns \textbf{Objective 2}:
+\begin{itemize}
+\item{\textit{Chapter 4:} brief explanation}
+\item{\textit{Chapter 5:} brief explanation}
+\end{itemize}
+\noindent
+\textbf{Part III} addresses \textbf{Objective 3} of this dissertation, where: 
+
+\begin{itemize}
+\item{\textit{Chapter 6:} brief explanation}
+\item{\textit{Chapter 7:} brief explanation}
+\end{itemize}
+
+%-------------------------
+%REFERENCES
+%-------------------------
+%This template is arranged so that the references appear at the end of every chapter. Remove if you don't want this and just stick the following piece of code at the end of main.tex only. 
+\pagebreak
+\bibliographystyle{unsrtnat}
+\bibliography{myrefs}
+\renewcommand{\thechapter}{\Roman{chapter}}

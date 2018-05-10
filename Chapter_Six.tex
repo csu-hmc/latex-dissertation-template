@@ -1,0 +1,105 @@
+%source .tex file for
+%PART 3, CHAPTER 6:
+
+%If the title is long, which it probably will be, you will have to manually specify the indentation of the second line in the TOC. Yes, it is tedious. This is a working example. If you find a smarter way, feel free to change. Just note that the TOCLOFT package isn't compatible with TITLETOC, which is needed for the other corrections to get this template into the CSU format. Otherwise, change the \hangindent value to be the best match for an even indent with the text on the previous line. In this example, it's set up correctly.  
+
+%Change Indents in TOC for Chapters to be Indented
+\titlecontents{chapter}
+[3.0em]
+{\hangindent6.5em}% <----only change this value here!!!!
+{\contentsmargin{0pt} 
+    \chaptername\ \thecontentslabel.\enspace%
+    \normalsize}
+{\contentsmargin{0pt}\normalsize}
+{\titlerule*[1pc]{.}\contentspage}
+
+%---------------------
+%CHAPTER TITLE PAGE
+%---------------------
+%TITLES MUST BE IN ALL CAPS
+%Titles must be in all caps. To avoid hyphenation in the TOC, you can use the short title in [] and the long title in {}. The short title should be the same as the long title, but with a different line break location with \\. Note that you may need to do the same thing with long titles in Sections and Subsections.
+\chapter[AN EXTREMELY LONG CHAPTER TITLE THAT GOES ON TWO LINES IN THE TOC]{AN EXTREMELY LONG CHAPTER TITLE THAT GOES \\ ON TWO LINES IN THE TOC}\label{Chapter_Six}
+
+%If you don't like this format, feel free to remove everything from here all the way down to the abstract. This is the same for all the other chapters. Just keep this before the Abstract: 
+%\renewcommand{\thechapter}{\arabic{chapter}}
+
+\textit{This is a designated section before every chapter that you can use to explain the purpose of the "chapter" in simple terms, as in, you're trying to explain what you're doing to a family member.}
+
+\vfill
+\footnotesize
+\singlespacing
+\noindent
+\textbf{Publication:} 
+\begin{enumerate}
+\item{List publication here, if any published or intended.}
+\end{enumerate}
+\noindent
+\textbf{Conference Abstract:}
+\begin{enumerate}
+\item{List conference abstracts here, if any published or intended.}
+\end{enumerate}
+
+\newpage
+\normalsize
+\doublespacing
+\renewcommand{\thechapter}{\arabic{chapter}}
+%--------------------------
+%ABSTRACT
+%--------------------------
+\section*{ABSTRACT} 
+\textit{Abstract for this paper/section}
+
+%-------------------------------------
+%Introduction
+%-------------------------------------
+\section{Introduction}
+Background. This is just an example to show that the references work per chapter \cite{book2}, and like this too \cite{article2}.
+
+%----------------------------------------
+%Methods
+%----------------------------------------
+\section{Methods}
+
+Text.
+
+\subsection{Subsection}
+
+Text.
+
+\subsection{Subsection}
+
+An example equation:
+
+\begin{equation}
+x = y
+\end{equation}
+
+\subsection{Subsection}
+
+Text.
+
+%----------------------------
+%Results
+%----------------------------
+\section{Results}
+Text.
+
+%-------------------------------------------
+%Conclusion 
+%-------------------------------------------
+\section{Conclusion}
+Text.
+
+%----------------------------
+%ACKNOWLEDGMENTS
+%----------------------------
+\section*{Acknowledgments}
+Thanks. 
+
+%-------------------------
+%REFERENCES
+%-------------------------
+%This template is arranged so that the references appear at the end of every chapter. Remove if you don't want this and just stick the following piece of code at the end of main.tex only. 
+\bibliographystyle{unsrtnat}
+\bibliography{myrefs}
+\renewcommand{\thechapter}{\Roman{chapter}}
